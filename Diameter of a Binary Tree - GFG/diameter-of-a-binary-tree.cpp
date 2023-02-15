@@ -108,19 +108,43 @@ class Solution {
 }
   public:
     // Function to return the diameter of a Binary Tree.
+    pair<int,int> diameterfast(Node* node)
+    {
+        if(node==NULL){
+             pair<int,int> p = make_pair(0,0);
+        return p;
+        }
+       
+        
+        pair<int,int> left = diameterfast(node->left);
+        pair<int,int> right = diameterfast(node->right);
+        
+        int op1 = left.first;
+        int op2 = right.first;
+        int op3 = left.second + right.second +1;
+        pair<int,int>ans;
+        ans.first =max(op1, max(op2,op3));
+        ans.second = max(left.second ,right.second)+1;
+        
+        return ans;
+        
+        
+        
+    }
     int diameter(Node* node) {
         // Your code here
+        return diameterfast(node).first;
         //base case
         
-        if(node==NULL)
-        return 0;
+        // if(node==NULL)
+        // return 0;
         
-        int op1 = diameter(node->left);
-        int op2 = diameter(node->right);
-        int op3 = height(node->left) + 1 + height(node->right);
+        // int op1 = diameter(node->left);
+        // int op2 = diameter(node->right);
+        // int op3 = height(node->left) + 1 + height(node->right);
         
-        int ans = max(op1 , max(op2 ,op3));
-        return ans;
+        // int ans = max(op1 , max(op2 ,op3));
+        // return ans;
     }
 };
 
