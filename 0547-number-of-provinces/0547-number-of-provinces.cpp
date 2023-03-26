@@ -5,7 +5,6 @@ public:
 
         visited[s]=true;
         
-        
         vector<int>adj;
     
         for(int i=0; i<n; i++)
@@ -22,14 +21,9 @@ public:
             if(!visited[x])
             {
                 dfs(x,n,isConnected ,visited);
-
-            
             }
 
-        }
-        
-        
-        
+        } 
     }
     
     
