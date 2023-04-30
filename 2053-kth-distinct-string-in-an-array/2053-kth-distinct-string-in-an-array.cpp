@@ -7,14 +7,14 @@ public:
         
         for(auto &i : arr)
         {
-            mp[i]++;
+            mp[i]++; //store the count of the strings
         }
         for(auto &i : arr)
         {
             if(mp[i]>1)continue;
-            counter++;
-            if(counter==k)
-                return i;
+            counter++;  //count increment if it is smaller than 1
+            if(counter==k)    
+                return i;  // return the output string which occur once at the correct position
         }
         return "";
         
